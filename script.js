@@ -12,6 +12,7 @@ const cookieOverlay = document.getElementById("cookieOverlay");
 const acceptCookiesBtn = document.getElementById("acceptCookies");
 const openCookiesLink = document.getElementById("openCookies");
 const languageSelect = document.getElementById("language");
+const themeToggle = document.getElementById("themeToggle");
 
 function setStatus(message) {
   statusText.textContent = message;
@@ -29,10 +30,35 @@ function getCookie(name) {
 }
 
 function hasConsent() {
-  return getCookie("haolei_consent") === "true";
+  return getCookie("haolei_consent") === "true" || localStorage.getItem("haolei_consent") === "true";
 }
 
-function showConsent() {
+// Theme Management
+function getPreferredTheme() {
+  const cookieTheme = getCookie("haolei_theme");
+  if (cookieTheme) return cookieTheme;
+  const localTheme = localStorage.getItem("haolei_theme");
+  if (localTheme) return localTheme;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  setCookie("haolei_theme", theme);
+  localStorage.setItem("haolei_theme", theme);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  const next = current === "dark" ? "light" : "dark";
+  setTheme(next);
+}
+
+// Initialize theme on page load
+setTheme(getPreferredTheme());
+
+function showConsent(force = false) {
+  if (!force && hasConsent()) return;
   cookieOverlay.classList.add("active");
   cookieOverlay.setAttribute("aria-hidden", "false");
   toggleUI(false);
@@ -91,6 +117,7 @@ function generateQR() {
   const size = Number(sizeSelect.value);
   const colorDark = fgInput.value;
   const colorLight = bgInput.value;
+  const format = formatSelect.value;
 
   if (!text) {
     if (window.I18N && typeof window.I18N.t === "function") {
@@ -262,6 +289,7 @@ if (languageSelect) {
 
 acceptCookiesBtn.addEventListener("click", () => {
   setCookie("haolei_consent", "true");
+  localStorage.setItem("haolei_consent", "true");
   hideConsent();
   loadPreferences();
   if (textInput.value.trim()) generateQR();
@@ -269,8 +297,10 @@ acceptCookiesBtn.addEventListener("click", () => {
 
 openCookiesLink.addEventListener("click", (event) => {
   event.preventDefault();
-  showConsent();
+  showConsent(true);
 });
+
+themeToggle.addEventListener("click", toggleTheme);
 
 if (window.I18N && typeof window.I18N.init === "function") {
   window.I18N.init("en").then(() => {
