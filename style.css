@@ -147,6 +147,19 @@ body {
   letter-spacing: -0.02em;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+}
+
 .subtitle {
   color: var(--muted);
   font-size: 14px;
