@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haolei QR Code Generator</title>
+<title data-i18n="app.title">Haolei QR Code Generator</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -13,17 +13,17 @@
 
 <div class="shell">
   <div class="card">
-    <h1 class="title">Haolei QR Code Generator</h1>
-    <p class="subtitle">No internet • No tracking • No API • 100% local</p>
+    <h1 class="title" data-i18n="app.title">Haolei QR Code Generator</h1>
+    <p class="subtitle" data-i18n="app.subtitle">No internet • No tracking • No API • 100% local</p>
 
     <div class="field">
-      <label class="label" for="text">Text or URL</label>
-      <input id="text" type="text" placeholder="Paste a link, text, or Wi‑Fi details">
+      <label class="label" for="text" data-i18n="label.text">Text or URL</label>
+      <input id="text" type="text" placeholder="Paste a link, text, or Wi‑Fi details" data-i18n="placeholder.text" data-i18n-placeholder>
     </div>
 
     <div class="row">
       <div class="field">
-        <label class="label" for="size">Size</label>
+        <label class="label" for="size" data-i18n="label.size">Size</label>
         <select id="size">
           <option value="200">200 px</option>
           <option value="240" selected>240 px</option>
@@ -31,74 +31,86 @@
         </select>
       </div>
       <div class="field">
-        <label class="label" for="fg">Foreground</label>
+        <label class="label" for="fg" data-i18n="label.foreground">Foreground</label>
         <input id="fg" type="color" value="#0f172a">
       </div>
       <div class="field">
-        <label class="label" for="bg">Background</label>
+        <label class="label" for="bg" data-i18n="label.background">Background</label>
         <input id="bg" type="color" value="#ffffff">
       </div>
     </div>
 
     <div class="row two">
       <div class="field">
-        <label class="label" for="format">Download format</label>
+        <label class="label" for="format" data-i18n="label.format">Download format</label>
         <select id="format">
-          <option value="png" selected>PNG (default)</option>
-          <option value="svg">SVG</option>
-          <option value="pdf">PDF</option>
-          <option value="jpg">JPG</option>
-          <option value="webp">WEBP</option>
+          <option value="png" selected data-i18n="format.png">PNG (default)</option>
+          <option value="svg" data-i18n="format.svg">SVG</option>
+          <option value="pdf" data-i18n="format.pdf">PDF</option>
+          <option value="jpg" data-i18n="format.jpg">JPG</option>
+          <option value="webp" data-i18n="format.webp">WEBP</option>
         </select>
       </div>
     </div>
 
     <div class="actions">
-      <button id="generateBtn" type="button">Generate QR</button>
-      <button id="downloadBtn" class="secondary" type="button" disabled>Download PNG</button>
+      <button id="generateBtn" type="button" data-i18n="action.generate">Generate QR</button>
+      <button id="downloadBtn" class="secondary" type="button" disabled data-i18n="action.download" data-i18n-format="PNG">Download PNG</button>
+    </div>
+
+    <div class="field">
+      <label class="label" for="language" data-i18n="language.label">Language</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="mrh">Mara</option>
+        <option value="my">Burmese</option>
+      </select>
     </div>
   </div>
 
   <div class="card preview-card">
     <div>
-      <p class="preview-title">Live Preview</p>
-      <p class="preview-subtitle">Updates as you type</p>
+      <p class="preview-title" data-i18n="preview.title">Live Preview</p>
+      <p class="preview-subtitle" data-i18n="preview.subtitle">Updates as you type</p>
     </div>
-    <div id="qr">Your QR code will appear here</div>
+    <div id="qr" data-i18n="preview.placeholder">Your QR code will appear here</div>
     <div class="status">
       <span class="dot"></span>
-      <span id="statusText">Ready to generate</span>
+      <span id="statusText" data-i18n="status.ready">Ready to generate</span>
     </div>
   </div>
 </div>
 
 <div id="cookieOverlay" class="overlay" aria-hidden="true">
   <div class="card consent-card" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
-    <h2 id="cookieTitle" class="title">Cookies & Preferences</h2>
-    <p class="subtitle">We use cookies to remember your preferences and consent. You must accept to use the generator.</p>
+    <h2 id="cookieTitle" class="title" data-i18n="cookies.title">Cookies & Preferences</h2>
+    <p class="subtitle" data-i18n="cookies.body">We use cookies to remember your preferences and consent. You must accept to use the generator.</p>
     <ul class="consent-list">
-      <li>Remember size and colors</li>
-      <li>Remember download format</li>
-      <li>Store consent choice</li>
+      <li data-i18n="cookies.item1">Remember size and colors</li>
+      <li data-i18n="cookies.item2">Remember download format</li>
+      <li data-i18n="cookies.item3">Store consent choice</li>
     </ul>
     <div class="actions">
-      <button id="acceptCookies" type="button">Accept & Continue</button>
+      <button id="acceptCookies" type="button" data-i18n="cookies.accept">Accept & Continue</button>
     </div>
   </div>
 </div>
 
 <footer class="footer">
-  <p class="footer-copy">© 2026 Laitei. All rights reserved.</p>
+  <p class="footer-copy" data-i18n="footer.copyright">© 2026 Laitei. All rights reserved.</p>
   <div class="footer-links">
-    <a href="#" id="openCookies" aria-label="Cookies">Cookies</a>
+    <a href="#" id="openCookies" aria-label="Cookies" data-i18n="footer.cookies">Cookies</a>
     <span>•</span>
-    <a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a>
+    <a href="privacy.html" aria-label="Privacy Policy" data-i18n="footer.privacy">Privacy Policy</a>
+    <span>•</span>
+    <a href="about.html" aria-label="About" data-i18n="footer.about">About</a>
   </div>
 </footer>
 
 <!-- FULL QRCode.js LIBRARY (MINIFIED) -->
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 
 </body>

@@ -4,7 +4,12 @@ const ASSETS = [
   "./index.html",
   "./style.css",
   "./script.js",
-  "./privacy.html"
+  "./i18n.js",
+  "./privacy.html",
+  "./about.html",
+  "./locales/en.json",
+  "./locales/mrh.json",
+  "./locales/my.json"
 ];
 
 self.addEventListener("install", (event) => {

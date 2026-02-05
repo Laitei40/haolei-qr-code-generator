@@ -11,6 +11,7 @@ const statusText = document.getElementById("statusText");
 const cookieOverlay = document.getElementById("cookieOverlay");
 const acceptCookiesBtn = document.getElementById("acceptCookies");
 const openCookiesLink = document.getElementById("openCookies");
+const languageSelect = document.getElementById("language");
 
 function setStatus(message) {
   statusText.textContent = message;
@@ -59,6 +60,7 @@ function savePreferences() {
   setCookie("haolei_bg", bgInput.value);
   setCookie("haolei_format", formatSelect.value);
   setCookie("haolei_text", textInput.value);
+  if (languageSelect) setCookie("haolei_lang", languageSelect.value);
 }
 
 function loadPreferences() {
@@ -67,15 +69,21 @@ function loadPreferences() {
   const bg = getCookie("haolei_bg");
   const format = getCookie("haolei_format");
   const text = getCookie("haolei_text");
+  const lang = getCookie("haolei_lang");
 
   if (size) sizeSelect.value = size;
   if (fg) fgInput.value = fg;
   if (bg) bgInput.value = bg;
   if (format) formatSelect.value = format;
   if (text) textInput.value = text;
+  if (languageSelect && lang) languageSelect.value = lang;
 
-  const label = formatSelect.value.toUpperCase();
-  downloadBtn.textContent = `Download ${label}`;
+  if (window.I18N && typeof window.I18N.apply === "function") {
+    window.I18N.apply();
+  } else {
+    const label = formatSelect.value.toUpperCase();
+    downloadBtn.textContent = `Download ${label}`;
+  }
 }
 
 function generateQR() {
@@ -85,11 +93,16 @@ function generateQR() {
   const colorLight = bgInput.value;
 
   if (!text) {
-    qrDiv.textContent = "Your QR code will appear here";
+    if (window.I18N && typeof window.I18N.t === "function") {
+      qrDiv.textContent = window.I18N.t("preview.placeholder");
+      setStatus(window.I18N.t("status.addContent"));
+    } else {
+      qrDiv.textContent = "Your QR code will appear here";
+      setStatus("Add content to generate");
+    }
     qrDiv.style.border = "1px dashed rgba(148, 163, 184, 0.6)";
     qrDiv.style.background = "rgba(148, 163, 184, 0.15)";
     downloadBtn.disabled = true;
-    setStatus("Add content to generate");
     return;
   }
 
@@ -107,7 +120,12 @@ function generateQR() {
   });
 
   downloadBtn.disabled = false;
-  setStatus("QR ready");
+  if (window.I18N && typeof window.I18N.t === "function") {
+    setStatus(window.I18N.t("status.qrReady"));
+  } else {
+    setStatus("QR ready");
+  }
+  downloadBtn.setAttribute("data-i18n-format", format.toUpperCase());
   savePreferences();
 }
 
@@ -221,9 +239,26 @@ generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click", downloadQR);
 formatSelect.addEventListener("change", () => {
   const format = formatSelect.value.toUpperCase();
-  downloadBtn.textContent = `Download ${format}`;
+  if (window.I18N && typeof window.I18N.t === "function") {
+    downloadBtn.textContent = window.I18N.t("action.download", { format });
+  } else {
+    downloadBtn.textContent = `Download ${format}`;
+  }
   savePreferences();
 });
+
+if (languageSelect) {
+  languageSelect.addEventListener("change", () => {
+    const lang = languageSelect.value;
+    if (window.I18N) {
+      window.I18N.load(lang).then(() => {
+        if (textInput.value.trim()) generateQR();
+        if (languageSelect) languageSelect.value = lang;
+      });
+    }
+    savePreferences();
+  });
+}
 
 acceptCookiesBtn.addEventListener("click", () => {
   setCookie("haolei_consent", "true");
@@ -237,12 +272,24 @@ openCookiesLink.addEventListener("click", (event) => {
   showConsent();
 });
 
-if (hasConsent()) {
-  hideConsent();
-  loadPreferences();
-  if (textInput.value.trim()) generateQR();
+if (window.I18N && typeof window.I18N.init === "function") {
+  window.I18N.init("en").then(() => {
+    if (hasConsent()) {
+      hideConsent();
+      loadPreferences();
+      if (textInput.value.trim()) generateQR();
+    } else {
+      showConsent();
+    }
+  });
 } else {
-  showConsent();
+  if (hasConsent()) {
+    hideConsent();
+    loadPreferences();
+    if (textInput.value.trim()) generateQR();
+  } else {
+    showConsent();
+  }
 }
 
 if ("serviceWorker" in navigator) {
