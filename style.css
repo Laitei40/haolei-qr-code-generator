@@ -243,11 +243,12 @@ body {
   display: none;
 }
 
-[data-theme="light"] .theme-toggle .icon-moon,
-:root:not([data-theme]) .theme-toggle .icon-moon {
+/* Light mode: show moon icon (to switch to dark) */
+.theme-toggle .icon-moon {
   display: block;
 }
 
+/* Dark mode: show sun icon (to switch to light), hide moon */
 [data-theme="dark"] .theme-toggle .icon-sun {
   display: block;
 }
