@@ -71,5 +71,14 @@
   "about.open.title": "Hnawh Pahypa",
   "about.open.body": "MIT-licensed-pa châ ta, na raihriana liata a hmâh thei.",
   "about.contact.title": "Azaona",
-  "language.label": "Reih"
+  "language.label": "Reih",
+  "langpick.title": "Choose Your Language",
+  "langpick.body": "Select your preferred language to continue.",
+  "langpick.confirm": "Continue",
+  "lang.en": "English",
+  "lang.mrh": "Mara (MRH)",
+  "lang.my": "Burmese",
+  "lang.en.name": "English",
+  "lang.mrh.name": "Mara",
+  "lang.my.name": "မြန်မာ"
 }
