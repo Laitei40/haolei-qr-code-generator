@@ -74,5 +74,11 @@
   "language.label": "ဘာသာစကား",
   "langpick.title": "ဘာသာစကား ရွေးချယ်ပါ",
   "langpick.body": "ဆက်လက်လုပ်ဆောင်ရန် သင့်ဘာသာစကားကို ရွေးချယ်ပါ။",
-  "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်"
+  "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်",
+  "lang.en": "English",
+  "lang.mrh": "Mara (MRH)",
+  "lang.my": "မြန်မာ",
+  "lang.en.name": "English",
+  "lang.mrh.name": "Mara",
+  "lang.my.name": "မြန်မာ"
 }

@@ -74,5 +74,11 @@
   "language.label": "Language",
   "langpick.title": "Choose Your Language",
   "langpick.body": "Select your preferred language to continue.",
-  "langpick.confirm": "Continue"
+  "langpick.confirm": "Continue",
+  "lang.en": "English",
+  "lang.mrh": "Mara (MRH)",
+  "lang.my": "Burmese",
+  "lang.en.name": "English",
+  "lang.mrh.name": "Mara",
+  "lang.my.name": "\u1019\u103c\u1014\u103a\u1019\u102c"
 }

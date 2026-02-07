@@ -81,7 +81,13 @@ const I18N = (() => {
       "language.label": "Language",
       "langpick.title": "Choose Your Language",
       "langpick.body": "Select your preferred language to continue.",
-      "langpick.confirm": "Continue"
+      "langpick.confirm": "Continue",
+      "lang.en": "English",
+      "lang.mrh": "Mara (MRH)",
+      "lang.my": "Burmese",
+      "lang.en.name": "English",
+      "lang.mrh.name": "Mara",
+      "lang.my.name": "မြန်မာ"
     },
     my: {
       "app.title": "Haolei QR ကုဒ် ဖန်တီးရာ",
@@ -159,7 +165,13 @@ const I18N = (() => {
       "language.label": "ဘာသာစကား",
       "langpick.title": "ဘာသာစကား ရွေးချယ်ပါ",
       "langpick.body": "ဆက်လက်လုပ်ဆောင်ရန် သင့်ဘာသာစကားကို ရွေးချယ်ပါ။",
-      "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်"
+      "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်",
+      "lang.en": "English",
+      "lang.mrh": "Mara (MRH)",
+      "lang.my": "မြန်မာ",
+      "lang.en.name": "English",
+      "lang.mrh.name": "Mara",
+      "lang.my.name": "မြန်မာ"
     },
     mrh: {
       "app.title": "Haolei QR Code Taona",
@@ -237,7 +249,13 @@ const I18N = (() => {
       "language.label": "Reih",
       "langpick.title": "Na Reih Tlyh",
       "langpick.body": "Hmiatôh awna châta na reih tlyh.",
-      "langpick.confirm": "Hmiatôh"
+      "langpick.confirm": "Hmiatôh",
+      "lang.en": "English",
+      "lang.mrh": "Mara (MRH)",
+      "lang.my": "မြန်မာ",
+      "lang.en.name": "English",
+      "lang.mrh.name": "Mara",
+      "lang.my.name": "မြန်မာ"
     }
   };
 
