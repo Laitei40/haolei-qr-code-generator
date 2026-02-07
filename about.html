@@ -56,6 +56,26 @@
     <h2 data-i18n="about.what.title">What it does</h2>
     <p data-i18n="about.what.body">Create QR codes instantly in your browser. Everything runs locally, even when the internet is unavailable.</p>
 
+    <h2 data-i18n="about.offline.title">Works Offline — Powered by Service Worker Cache</h2>
+    <p data-i18n="about.offline.intro">Haolei QR Code Generator is built as a Progressive Web App (PWA) with full offline support. Once you visit the site for the first time, all essential files are automatically cached on your device using a Service Worker.</p>
+
+    <h3 data-i18n="about.offline.how.title">How it works</h3>
+    <p data-i18n="about.offline.how.body">When you first load the app, a Service Worker installs in the background and caches the HTML pages, stylesheets, scripts, translation files, and the app logo. After that initial visit, the entire application is available from your browser's cache — no internet connection required.</p>
+
+    <h3 data-i18n="about.offline.what.title">What gets cached</h3>
+    <ul>
+      <li data-i18n="about.offline.item1">All pages: Generator, About, and Privacy</li>
+      <li data-i18n="about.offline.item2">Stylesheets and scripts for full functionality</li>
+      <li data-i18n="about.offline.item3">Translation files for all supported languages (English, Mara, Burmese)</li>
+      <li data-i18n="about.offline.item4">The app logo and icon</li>
+    </ul>
+
+    <h3 data-i18n="about.offline.strategy.title">Smart caching strategy</h3>
+    <p data-i18n="about.offline.strategy.body">The app uses a network-first strategy for pages and a cache-first strategy for assets. This means you always get the latest version when online, but everything still works seamlessly when you lose connectivity. The cache updates automatically whenever a new version is deployed.</p>
+
+    <h3 data-i18n="about.offline.benefit.title">Why this matters</h3>
+    <p data-i18n="about.offline.benefit.body">Whether you are on an airplane, in a remote area with no signal, or simply want a fast experience without waiting for network requests, Haolei QR Code Generator is ready to use. No installation needed — just visit once and you are set.</p>
+
     <h2 data-i18n="about.why.title">Why it matters</h2>
     <p data-i18n="about.why.body">Your data stays on your device. No tracking, no server processing, just fast QR generation.</p>
 
@@ -65,8 +85,6 @@
     <h2 data-i18n="about.contact.title">Contact</h2>
     <p>Website: <a href="https://laitei.dev" target="_blank" rel="noopener">laitei.dev</a></p>
     <p>Email: <a href="mailto:laitei@duck.com">laitei@duck.com</a></p>
-
-    <a href="index.html" class="back-link" data-i18n="about.back">← Back to generator</a>
   </div>
 </div>
 
