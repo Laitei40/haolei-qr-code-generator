@@ -205,6 +205,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: none;
   width: 40px;
   height: 40px;
   margin-right: 0.75rem;
@@ -433,18 +434,18 @@ button {
   overflow: hidden;
 }
 
-button:not(.secondary) {
+button:not(.secondary):not(.theme-toggle) {
   color: #fff;
   background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
   box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
-button:not(.secondary):hover {
+button:not(.secondary):not(.theme-toggle):hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
 }
 
-button:not(.secondary):active {
+button:not(.secondary):not(.theme-toggle):active {
   transform: translateY(0);
 }
 

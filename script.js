@@ -304,6 +304,10 @@ themeToggle.addEventListener("click", toggleTheme);
 
 if (window.I18N && typeof window.I18N.init === "function") {
   window.I18N.init("en").then(() => {
+    // Sync language selector to saved language
+    const savedLang = getCookie("haolei_lang");
+    if (savedLang && languageSelect) languageSelect.value = savedLang;
+
     if (hasConsent()) {
       hideConsent();
       loadPreferences();
