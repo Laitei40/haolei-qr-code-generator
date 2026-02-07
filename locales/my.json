@@ -71,5 +71,8 @@
   "about.open.title": "Open Source",
   "about.open.body": "MIT License နဲ့ Open Source ပေးထားလို့ လိုအပ်သလို လွတ်လပ်စွာ ပြင်ဆင်အသုံးပြုနိုင်ပါတယ်။",
   "about.contact.title": "ဆက်သွယ်ရန်",
-  "language.label": "ဘာသာစကား"
+  "language.label": "ဘာသာစကား",
+  "langpick.title": "ဘာသာစကား ရွေးချယ်ပါ",
+  "langpick.body": "ဆက်လက်လုပ်ဆောင်ရန် သင့်ဘာသာစကားကို ရွေးချယ်ပါ။",
+  "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်"
 }

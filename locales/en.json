@@ -71,5 +71,8 @@
   "about.open.title": "Open source",
   "about.open.body": "MIT-licensed and easy to customize for your own workflows.",
   "about.contact.title": "Contact",
-  "language.label": "Language"
+  "language.label": "Language",
+  "langpick.title": "Choose Your Language",
+  "langpick.body": "Select your preferred language to continue.",
+  "langpick.confirm": "Continue"
 }

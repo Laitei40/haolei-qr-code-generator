@@ -71,5 +71,8 @@
   "about.open.title": "Hnawh Pahypa",
   "about.open.body": "MIT-licensed-pa châ ta, na raihriana liata a hmâh thei.",
   "about.contact.title": "Azaona",
-  "language.label": "Reih"
+  "language.label": "Reih",
+  "langpick.title": "Na Reih Tlyh",
+  "langpick.body": "Hmiatôh awna châta na reih tlyh.",
+  "langpick.confirm": "Hmiatôh"
 }

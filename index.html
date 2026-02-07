@@ -115,6 +115,37 @@
   </div>
 </div>
 
+<div id="langPickOverlay" class="overlay" aria-hidden="true">
+  <div class="card consent-card lang-pick-card" role="dialog" aria-modal="true" aria-labelledby="langPickTitle">
+    <div class="lang-pick-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+    </div>
+    <h2 id="langPickTitle" class="title" data-i18n="langpick.title">Choose Your Language</h2>
+    <p class="subtitle" data-i18n="langpick.body">Select your preferred language to continue.</p>
+    <div class="lang-pick-options">
+      <button type="button" class="lang-option" data-lang="en">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-name">English</span>
+      </button>
+      <button type="button" class="lang-option" data-lang="mrh">
+        <span class="lang-flag">🇲🇲</span>
+        <span class="lang-name">Mara</span>
+      </button>
+      <button type="button" class="lang-option" data-lang="my">
+        <span class="lang-flag">🇲🇲</span>
+        <span class="lang-name">မြန်မာ</span>
+      </button>
+    </div>
+    <div class="actions">
+      <button id="confirmLang" type="button" data-i18n="langpick.confirm">Continue</button>
+    </div>
+  </div>
+</div>
+
 <div id="cookieOverlay" class="overlay" aria-hidden="true">
   <div class="card consent-card" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
     <h2 id="cookieTitle" class="title" data-i18n="cookies.title">Cookies & Preferences</h2>

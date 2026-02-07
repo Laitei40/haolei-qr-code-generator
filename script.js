@@ -287,6 +287,71 @@ if (languageSelect) {
   });
 }
 
+// Language Picker Elements
+const langPickOverlay = document.getElementById("langPickOverlay");
+const confirmLangBtn = document.getElementById("confirmLang");
+const langOptions = document.querySelectorAll(".lang-option");
+let selectedLang = "en";
+
+// Pre-select the default English option
+document.querySelector('.lang-option[data-lang="en"]')?.classList.add("selected");
+
+function hasLangChosen() {
+  return getCookie("haolei_lang_chosen") === "true" || localStorage.getItem("haolei_lang_chosen") === "true";
+}
+
+function showLangPick() {
+  langPickOverlay.setAttribute("aria-hidden", "false");
+  toggleUI(false);
+}
+
+function hideLangPick() {
+  langPickOverlay.setAttribute("aria-hidden", "true");
+}
+
+// Language option click handling
+langOptions.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    langOptions.forEach((b) => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    selectedLang = btn.getAttribute("data-lang");
+
+    // Live-update the popup text to selected language
+    if (typeof I18N !== "undefined") {
+      I18N.load(selectedLang).then(() => {
+        if (languageSelect) languageSelect.value = selectedLang;
+      });
+    }
+  });
+});
+
+confirmLangBtn.addEventListener("click", () => {
+  setCookie("haolei_lang_chosen", "true");
+  localStorage.setItem("haolei_lang_chosen", "true");
+  setCookie("haolei_lang", selectedLang);
+
+  if (typeof I18N !== "undefined") {
+    I18N.load(selectedLang).then(() => {
+      if (languageSelect) languageSelect.value = selectedLang;
+      hideLangPick();
+
+      // Now show the cookie consent
+      if (!hasConsent()) {
+        showConsent();
+      } else {
+        hideConsent();
+        loadPreferences();
+        if (textInput.value.trim()) generateQR();
+      }
+    });
+  } else {
+    hideLangPick();
+    if (!hasConsent()) {
+      showConsent();
+    }
+  }
+});
+
 acceptCookiesBtn.addEventListener("click", () => {
   setCookie("haolei_consent", "true");
   localStorage.setItem("haolei_consent", "true");
@@ -308,7 +373,10 @@ if (typeof I18N !== "undefined" && typeof I18N.init === "function") {
     const savedLang = getCookie("haolei_lang");
     if (savedLang && languageSelect) languageSelect.value = savedLang;
 
-    if (hasConsent()) {
+    if (!hasLangChosen()) {
+      // First-time user: show language picker first
+      showLangPick();
+    } else if (hasConsent()) {
       hideConsent();
       loadPreferences();
       if (textInput.value.trim()) generateQR();
@@ -317,7 +385,9 @@ if (typeof I18N !== "undefined" && typeof I18N.init === "function") {
     }
   });
 } else {
-  if (hasConsent()) {
+  if (!hasLangChosen()) {
+    showLangPick();
+  } else if (hasConsent()) {
     hideConsent();
     loadPreferences();
     if (textInput.value.trim()) generateQR();

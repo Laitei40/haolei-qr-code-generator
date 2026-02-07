@@ -78,7 +78,10 @@ const I18N = (() => {
       "about.open.title": "Open source",
       "about.open.body": "MIT-licensed and easy to customize for your own workflows.",
       "about.contact.title": "Contact",
-      "language.label": "Language"
+      "language.label": "Language",
+      "langpick.title": "Choose Your Language",
+      "langpick.body": "Select your preferred language to continue.",
+      "langpick.confirm": "Continue"
     },
     my: {
       "app.title": "Haolei QR ကုဒ် ဖန်တီးရာ",
@@ -153,7 +156,10 @@ const I18N = (() => {
       "about.open.title": "Open Source",
       "about.open.body": "MIT License နဲ့ Open Source ပေးထားလို့ လိုအပ်သလို လွတ်လပ်စွာ ပြင်ဆင်အသုံးပြုနိုင်ပါတယ်။",
       "about.contact.title": "ဆက်သွယ်ရန်",
-      "language.label": "ဘာသာစကား"
+      "language.label": "ဘာသာစကား",
+      "langpick.title": "ဘာသာစကား ရွေးချယ်ပါ",
+      "langpick.body": "ဆက်လက်လုပ်ဆောင်ရန် သင့်ဘာသာစကားကို ရွေးချယ်ပါ။",
+      "langpick.confirm": "ဆက်လက်လုပ်ဆောင်မယ်"
     },
     mrh: {
       "app.title": "Haolei QR Code Taona",
@@ -228,7 +234,10 @@ const I18N = (() => {
       "about.open.title": "Hnawh Pahypa",
       "about.open.body": "MIT-licensed-pa châ ta, na raihriana liata a hmâh thei.",
       "about.contact.title": "Azaona",
-      "language.label": "Reih"
+      "language.label": "Reih",
+      "langpick.title": "Na Reih Tlyh",
+      "langpick.body": "Hmiatôh awna châta na reih tlyh.",
+      "langpick.confirm": "Hmiatôh"
     }
   };
 
