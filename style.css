@@ -756,6 +756,39 @@ button:disabled {
   background: rgba(99, 102, 241, 0.15);
 }
 
+/* Contact Icons */
+.contact-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.contact-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.contact-icons a:hover {
+  color: var(--primary);
+  border-color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.08);
+  transform: translateY(-2px);
+}
+
+.contact-icons svg {
+  width: 22px;
+  height: 22px;
+}
+
 /* ============================================
    Responsive Design
    ============================================ */
