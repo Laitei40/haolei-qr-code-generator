@@ -104,8 +104,8 @@ function loadPreferences() {
   if (text) textInput.value = text;
   if (languageSelect && lang) languageSelect.value = lang;
 
-  if (window.I18N && typeof window.I18N.apply === "function") {
-    window.I18N.apply();
+  if (typeof I18N !== "undefined" && typeof I18N.apply === "function") {
+    I18N.apply();
   } else {
     const label = formatSelect.value.toUpperCase();
     downloadBtn.textContent = `Download ${label}`;
@@ -120,9 +120,9 @@ function generateQR() {
   const format = formatSelect.value;
 
   if (!text) {
-    if (window.I18N && typeof window.I18N.t === "function") {
-      qrDiv.textContent = window.I18N.t("preview.placeholder");
-      setStatus(window.I18N.t("status.addContent"));
+    if (typeof I18N !== "undefined" && typeof I18N.t === "function") {
+      qrDiv.textContent = I18N.t("preview.placeholder");
+      setStatus(I18N.t("status.addContent"));
     } else {
       qrDiv.textContent = "Your QR code will appear here";
       setStatus("Add content to generate");
@@ -147,8 +147,8 @@ function generateQR() {
   });
 
   downloadBtn.disabled = false;
-  if (window.I18N && typeof window.I18N.t === "function") {
-    setStatus(window.I18N.t("status.qrReady"));
+  if (typeof I18N !== "undefined" && typeof I18N.t === "function") {
+    setStatus(I18N.t("status.qrReady"));
   } else {
     setStatus("QR ready");
   }
@@ -266,8 +266,8 @@ generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click", downloadQR);
 formatSelect.addEventListener("change", () => {
   const format = formatSelect.value.toUpperCase();
-  if (window.I18N && typeof window.I18N.t === "function") {
-    downloadBtn.textContent = window.I18N.t("action.download", { format });
+  if (typeof I18N !== "undefined" && typeof I18N.t === "function") {
+    downloadBtn.textContent = I18N.t("action.download", { format });
   } else {
     downloadBtn.textContent = `Download ${format}`;
   }
@@ -277,8 +277,8 @@ formatSelect.addEventListener("change", () => {
 if (languageSelect) {
   languageSelect.addEventListener("change", () => {
     const lang = languageSelect.value;
-    if (window.I18N) {
-      window.I18N.load(lang).then(() => {
+    if (typeof I18N !== "undefined") {
+      I18N.load(lang).then(() => {
         if (textInput.value.trim()) generateQR();
         if (languageSelect) languageSelect.value = lang;
       });
@@ -302,8 +302,8 @@ openCookiesLink.addEventListener("click", (event) => {
 
 themeToggle.addEventListener("click", toggleTheme);
 
-if (window.I18N && typeof window.I18N.init === "function") {
-  window.I18N.init("en").then(() => {
+if (typeof I18N !== "undefined" && typeof I18N.init === "function") {
+  I18N.init("en").then(() => {
     // Sync language selector to saved language
     const savedLang = getCookie("haolei_lang");
     if (savedLang && languageSelect) languageSelect.value = savedLang;

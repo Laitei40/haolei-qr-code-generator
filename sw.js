@@ -1,4 +1,4 @@
-const CACHE_NAME = "haolei-qr-v2";
+const CACHE_NAME = "haolei-qr-v3";
 const ASSETS = [
   "./",
   "./index.html",
