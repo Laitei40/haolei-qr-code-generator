@@ -71,5 +71,14 @@
   "about.open.title": "Open source",
   "about.open.body": "MIT-licensed and easy to customize for your own workflows.",
   "about.contact.title": "Contact",
-  "language.label": "Language"
+  "language.label": "Language",
+  "langpick.title": "Choose Your Language",
+  "langpick.body": "Select your preferred language to continue.",
+  "langpick.confirm": "Continue",
+  "lang.en": "English",
+  "lang.mrh": "Mara",
+  "lang.my": "Burmese",
+  "lang.en.name": "English",
+  "lang.mrh.name": "Mara",
+  "lang.my.name": "\u1019\u103c\u1014\u103a\u1019\u102c"
 }
