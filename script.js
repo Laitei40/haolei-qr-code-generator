@@ -5,7 +5,6 @@ const fgInput = document.getElementById("fg");
 const bgInput = document.getElementById("bg");
 const formatSelect = document.getElementById("format");
 const qrDiv = document.getElementById("qr");
-const generateBtn = document.getElementById("generateBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 const statusText = document.getElementById("statusText");
 const cookieOverlay = document.getElementById("cookieOverlay");
@@ -76,7 +75,6 @@ function toggleUI(enabled) {
   fgInput.disabled = !enabled;
   bgInput.disabled = !enabled;
   formatSelect.disabled = !enabled;
-  generateBtn.disabled = !enabled;
   downloadBtn.disabled = !enabled || downloadBtn.disabled;
 }
 
@@ -262,7 +260,6 @@ textInput.addEventListener("input", scheduleGenerate);
 sizeSelect.addEventListener("change", generateQR);
 fgInput.addEventListener("input", generateQR);
 bgInput.addEventListener("input", generateQR);
-generateBtn.addEventListener("click", generateQR);
 downloadBtn.addEventListener("click", downloadQR);
 formatSelect.addEventListener("change", () => {
   const format = formatSelect.value.toUpperCase();
