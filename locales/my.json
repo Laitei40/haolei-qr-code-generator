@@ -16,7 +16,6 @@
   "format.pdf": "PDF",
   "format.jpg": "JPG",
   "format.webp": "WEBP",
-  "action.generate": "QR ဖန်တီးရန်",
   "action.download": "{format} ဒေါင်းလုပ်",
   "preview.title": "တိုက်ရိုက် မြင်ကွင်း",
   "preview.subtitle": "ရေးသလို အလိုအလျောက် ပြောင်းလဲမည်",
